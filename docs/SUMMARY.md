@@ -45,6 +45,7 @@
 - [Architecture](./development/architecture.md)
 - [Database](./development/database.md)
 - [Internal GraphQL API](./development/graphql.md)
+ - [Diagrams](./development/diagrams.md)
 
 ---
 

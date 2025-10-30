@@ -16,5 +16,6 @@ This documentation has four main sections:
 - The topics sections goes into more details about how the service works, like the [policy engine](./topics/policy.md) and how [authorization sessions](./topics/authorization.md) are managed.
 - The reference documentation covers [configuration options](./reference/configuration.md), the [Admin API](./api/index.html), the [scopes](./reference/scopes.md) supported by the service, and the [command line interface](./reference/cli/).
 - The developer documentation is intended for people who want to [contribute to the project](./development/contributing.md). Developers may also be interested in:
-  - Technical documentation for individual crates: [`rustdoc`](./rustdoc/mas_handlers/)
+  - Technical documentation for individual crates: [`rustdoc`](./rustdoc/)
+  - TypeScript API (frontend utilities and services): [`typedoc`](./tsdoc/)
   - UI components: [`storybook`](./storybook/)

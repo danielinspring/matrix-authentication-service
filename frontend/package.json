@@ -14,6 +14,7 @@
     "coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build-typedoc": "typedoc",
     "i18n": "i18next",
     "knip": "knip"
   },
@@ -79,7 +80,8 @@
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-graphql-codegen": "^3.7.0",
     "vite-plugin-manifest-sri": "^0.2.0",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "typedoc": "^0.28.0"
   },
   "msw": {
     "workerDirectory": [

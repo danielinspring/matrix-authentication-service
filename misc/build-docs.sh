@@ -54,5 +54,6 @@ mv target/doc target/book/rustdoc
 # Build the frontend storybook
 cd frontend
 npm ci
+npx typedoc --options typedoc.json
 npx storybook build -o ../target/book/storybook
 cd ..
