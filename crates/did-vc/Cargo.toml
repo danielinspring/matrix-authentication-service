@@ -1,0 +1,25 @@
+[package]
+name = "mas-did-vc"
+version = "1.5.0"
+edition = "2024"
+authors = ["Element Backend Team"]
+license = "AGPL-3.0-only OR LicenseRef-Element-Commercial"
+repository = "https://github.com/element-hq/matrix-authentication-service/"
+publish = false
+
+[features]
+# Enable Spruce SSI-backed DID/VC support
+ssi = ["dep:ssi"]
+
+[dependencies]
+anyhow = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+async-trait = { workspace = true }
+
+# Optional Spruce SSI umbrella crate; only compiled with feature = "ssi"
+ssi = { version = "0.9", optional = true, default-features = false, features = ["did", "vc", "jwk", "secp256k1", "ed25519", "x25519"] }
+
+[dev-dependencies]
+serde_json = { workspace = true }
