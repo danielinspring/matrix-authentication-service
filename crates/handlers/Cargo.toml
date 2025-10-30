@@ -86,6 +86,7 @@ mas-storage.workspace = true
 mas-storage-pg.workspace = true
 mas-tasks.workspace = true
 mas-templates.workspace = true
+mas-did.workspace = true
 oauth2-types.workspace = true
 zxcvbn.workspace = true
 

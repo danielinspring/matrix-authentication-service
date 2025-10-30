@@ -218,3 +218,16 @@ pub enum UserRegistrationTokens {
     ExpiresAt,
     RevokedAt,
 }
+
+#[derive(sea_query::Iden)]
+#[iden = "user_dids"]
+pub enum UserDids {
+    Table,
+    #[iden = "user_did_id"]
+    UserDidId,
+    UserId,
+    Did,
+    Method,
+    CreatedAt,
+    RevokedAt,
+}

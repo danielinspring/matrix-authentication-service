@@ -62,6 +62,7 @@ mod views;
 
 mod activity_tracker;
 mod captcha;
+mod did;
 mod preferred_language;
 mod rate_limit;
 mod session;
@@ -216,6 +217,8 @@ where
             mas_router::OAuth2Keys::route(),
             get(self::oauth2::keys::get),
         )
+        .route("/api/did/challenge", post(self::did::challenge))
+        .route("/api/did/verify", post(self::did::verify))
         .route(
             mas_router::OidcUserinfo::route(),
             get(self::oauth2::userinfo::get).post(self::oauth2::userinfo::get),

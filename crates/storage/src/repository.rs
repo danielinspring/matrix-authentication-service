@@ -25,6 +25,7 @@ use crate::{
         UpstreamOAuthLinkRepository, UpstreamOAuthProviderRepository,
         UpstreamOAuthSessionRepository,
     },
+    did::UserDidLinkRepository,
     user::{
         BrowserSessionRepository, UserEmailRepository, UserPasswordRepository,
         UserRecoveryRepository, UserRegistrationRepository, UserRegistrationTokenRepository,
@@ -115,6 +116,10 @@ pub trait RepositoryTransaction {
 pub trait RepositoryAccess: Send {
     /// The backend-specific error type used by each repository.
     type Error: std::error::Error + Send + Sync + 'static;
+
+    /// Get a [`UserDidLinkRepository`]
+    fn user_did_link<'c>(&'c mut self)
+    -> Box<dyn UserDidLinkRepository<Error = Self::Error> + 'c>;
 
     /// Get an [`UpstreamOAuthLinkRepository`]
     fn upstream_oauth_link<'c>(
@@ -265,6 +270,7 @@ mod impls {
             UpstreamOAuthLinkRepository, UpstreamOAuthProviderRepository,
             UpstreamOAuthSessionRepository,
         },
+        did::UserDidLinkRepository,
         user::{
             BrowserSessionRepository, UserEmailRepository, UserPasswordRepository,
             UserRegistrationRepository, UserRegistrationTokenRepository, UserRepository,
@@ -310,6 +316,12 @@ mod impls {
         E: std::error::Error + Send + Sync + 'static,
     {
         type Error = E;
+
+        fn user_did_link<'c>(
+            &'c mut self,
+        ) -> Box<dyn UserDidLinkRepository<Error = Self::Error> + 'c> {
+            Box::new(MapErr::new(self.inner.user_did_link(), &mut self.mapper))
+        }
 
         fn upstream_oauth_link<'c>(
             &'c mut self,
@@ -510,6 +522,12 @@ mod impls {
 
     impl<R: RepositoryAccess + ?Sized> RepositoryAccess for Box<R> {
         type Error = R::Error;
+
+        fn user_did_link<'c>(
+            &'c mut self,
+        ) -> Box<dyn UserDidLinkRepository<Error = Self::Error> + 'c> {
+            (**self).user_did_link()
+        }
 
         fn upstream_oauth_link<'c>(
             &'c mut self,

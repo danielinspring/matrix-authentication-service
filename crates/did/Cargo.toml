@@ -1,0 +1,23 @@
+[package]
+name = "mas-did"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+ulid.workspace = true
+rand.workspace = true
+
+# SpruceID SSI (feature-heavy; keep as optional features for now)
+ssi = { version = "0.7", default-features = false, features = ["did-key", "did-web", "did-jwk", "vc", "secp256k1", "ed25519", "generate"] }

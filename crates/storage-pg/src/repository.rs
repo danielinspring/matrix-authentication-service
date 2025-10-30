@@ -23,6 +23,7 @@ use mas_storage::{
     personal::PersonalSessionRepository,
     policy_data::PolicyDataRepository,
     queue::{QueueJobRepository, QueueScheduleRepository, QueueWorkerRepository},
+    did::UserDidLinkRepository,
     upstream_oauth2::{
         UpstreamOAuthLinkRepository, UpstreamOAuthProviderRepository,
         UpstreamOAuthSessionRepository,
@@ -55,6 +56,7 @@ use crate::{
         worker::PgQueueWorkerRepository,
     },
     telemetry::DB_CLIENT_CONNECTIONS_CREATE_TIME_HISTOGRAM,
+    did::PgUserDidLinkRepository,
     upstream_oauth2::{
         PgUpstreamOAuthLinkRepository, PgUpstreamOAuthProviderRepository,
         PgUpstreamOAuthSessionRepository,
@@ -203,6 +205,10 @@ where
     C: AsMut<PgConnection> + Send,
 {
     type Error = DatabaseError;
+
+    fn user_did_link<'c>(&'c mut self) -> Box<dyn UserDidLinkRepository<Error = Self::Error> + 'c> {
+        Box::new(PgUserDidLinkRepository::new(self.conn.as_mut()))
+    }
 
     fn upstream_oauth_link<'c>(
         &'c mut self,

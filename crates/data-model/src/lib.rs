@@ -14,6 +14,7 @@ pub mod oauth2;
 pub mod personal;
 pub(crate) mod policy_data;
 mod site_config;
+pub(crate) mod did;
 pub(crate) mod tokens;
 pub(crate) mod upstream_oauth2;
 pub(crate) mod user_agent;
@@ -58,6 +59,7 @@ pub use self::{
         UserEmailAuthentication, UserEmailAuthenticationCode, UserRecoverySession,
         UserRecoveryTicket, UserRegistration, UserRegistrationPassword, UserRegistrationToken,
     },
+    did::UserDidLink,
     utils::{BoxClock, BoxRng},
     version::AppVersion,
 };

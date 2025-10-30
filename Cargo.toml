@@ -61,6 +61,7 @@ mas-storage-pg = { path = "./crates/storage-pg/", version = "=1.5.0" }
 mas-tasks = { path = "./crates/tasks/", version = "=1.5.0" }
 mas-templates = { path = "./crates/templates/", version = "=1.5.0" }
 mas-tower = { path = "./crates/tower/", version = "=1.5.0" }
+mas-did = { path = "./crates/did/", version = "=1.5.0" }
 oauth2-types = { path = "./crates/oauth2-types/", version = "=1.5.0" }
 syn2mas = { path = "./crates/syn2mas", version = "=1.5.0" }
 
