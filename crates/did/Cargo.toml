@@ -1,0 +1,58 @@
+# Copyright 2025 New Vector Ltd.
+#
+# SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+# Please see LICENSE files in the repository root for full details.
+
+[package]
+name = "mas-did"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+# Async traits
+async-trait.workspace = true
+
+# Error handling
+anyhow.workspace = true
+thiserror.workspace = true
+
+# Serialization
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+
+# HTTP client for DID resolution
+reqwest.workspace = true
+url.workspace = true
+
+# Cryptography - RustCrypto ecosystem
+ed25519-dalek = { version = "2.1", features = ["rand_core"] }
+x25519-dalek = { version = "2.0", features = ["static_secrets"] }
+chacha20poly1305 = { workspace = true }
+sha2.workspace = true
+rand.workspace = true
+zeroize.workspace = true
+
+# Base encoding
+base64ct.workspace = true
+hex.workspace = true
+
+# Time
+chrono.workspace = true
+
+# Logging
+tracing.workspace = true
+
+# Platform keyring support for secure key storage
+keyring = { version = "3.9", features = ["sync-secret-service", "apple-native", "windows-native", "crypto-rust"] }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util"] }
+tokio-test.workspace = true

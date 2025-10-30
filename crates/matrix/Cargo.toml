@@ -21,3 +21,8 @@ anyhow.workspace = true
 async-trait.workspace = true
 tokio.workspace = true
 ruma-common.workspace = true
+chrono.workspace = true
+rand.workspace = true
+serde.workspace = true
+
+mas-did.workspace = true

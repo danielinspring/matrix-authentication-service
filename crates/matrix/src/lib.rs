@@ -4,6 +4,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 // Please see LICENSE files in the repository root for full details.
 
+mod device_keys;
+mod did_auth;
 mod mock;
 mod readonly;
 
@@ -12,7 +14,10 @@ use std::{collections::HashSet, sync::Arc};
 use ruma_common::UserId;
 
 pub use self::{
-    mock::HomeserverConnection as MockHomeserverConnection, readonly::ReadOnlyHomeserverConnection,
+    device_keys::{CrossSigningKeys, DeviceKeys, DeviceManager, VerificationStatus},
+    did_auth::{AuthChallenge, DIDAuthService, DIDMapping},
+    mock::HomeserverConnection as MockHomeserverConnection,
+    readonly::ReadOnlyHomeserverConnection,
 };
 
 #[derive(Debug)]

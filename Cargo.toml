@@ -39,6 +39,7 @@ mas-cli = { path = "./crates/cli/", version = "=1.5.0" }
 mas-config = { path = "./crates/config/", version = "=1.5.0" }
 mas-context = { path = "./crates/context/", version = "=1.5.0" }
 mas-data-model = { path = "./crates/data-model/", version = "=1.5.0" }
+mas-did = { path = "./crates/did/", version = "=1.5.0" }
 mas-email = { path = "./crates/email/", version = "=1.5.0" }
 mas-graphql = { path = "./crates/graphql/", version = "=1.5.0" }
 mas-handlers = { path = "./crates/handlers/", version = "=1.5.0" }
@@ -215,10 +216,20 @@ version = "0.15.7"
 version = "0.16.9"
 features = ["signing", "verifying"]
 
+# Ed25519 signing
+[workspace.dependencies.ed25519-dalek]
+version = "2.1"
+features = ["rand_core"]
+
 # Elliptic curve cryptography
 [workspace.dependencies.elliptic-curve]
 version = "0.13.8"
 features = ["std", "pem", "sec1"]
+
+# X25519 key agreement
+[workspace.dependencies.x25519-dalek]
+version = "2.0"
+features = ["static_secrets"]
 
 # Configuration loading
 [workspace.dependencies.figment]
