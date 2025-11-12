@@ -46,6 +46,17 @@
 - [Database](./development/database.md)
 - [Internal GraphQL API](./development/graphql.md)
 
+# MAS-DID Design (Decentralized Identity)
+
+- [Overview](./design/mas-did-overview.md)
+- [Requirements & Insights](./design/requirements.md)
+- [OIDC-DID Bridge](./design/oidc-did-bridge.md)
+- [Identity Mapping & 3PIDs](./design/identity-mapping.md)
+- [Authentication Flows](./design/auth-flows.md)
+- [MLS Authentication Service](./design/mls-as.md)
+- [VC-Based Authorization](./design/vc-authorization.md)
+- [Federation & Roadmap](./design/federation-roadmap.md)
+
 ---
 
 [Application Services login](./as-login.md)
